@@ -1,0 +1,11 @@
+{
+  "name": "gulp-example",
+  "version": "0.1.0",
+  "description": "This project serves as an example of how to use gulp by performing a few common tasks including minifying assets and compiling sass.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Imraan-Hendricks",
+  "license": "ISC"
+}

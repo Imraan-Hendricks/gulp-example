@@ -4,6 +4,7 @@
   "description": "This project serves as an example of how to use gulp by performing a few common tasks including minifying assets and compiling sass.",
   "main": "index.js",
   "scripts": {
+    "compileJs": "gulp compileJs",
     "copyHtml": "gulp copyHtml"
   },
   "author": "Imraan-Hendricks",

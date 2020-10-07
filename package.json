@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compileJs": "gulp compileJs",
+    "compileSass": "gulp compileSass",
     "copyHtml": "gulp copyHtml"
   },
   "author": "Imraan-Hendricks",

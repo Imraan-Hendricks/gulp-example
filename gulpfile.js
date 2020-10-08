@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
+const imagemin = require('gulp-imagemin');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 
@@ -20,6 +21,10 @@ const compileSass = async () =>
 
 const copyHtml = async () => gulp.src('src/*.html').pipe(gulp.dest('build'));
 
+const imageMin = () =>
+  gulp.src('src/images/*').pipe(imagemin()).pipe(gulp.dest('build/images'));
+
 exports.compileJs = compileJs;
 exports.compileSass = compileSass;
 exports.copyHtml = copyHtml;
+exports.imageMin = imageMin;

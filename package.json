@@ -6,7 +6,8 @@
   "scripts": {
     "compileJs": "gulp compileJs",
     "compileSass": "gulp compileSass",
-    "copyHtml": "gulp copyHtml"
+    "copyHtml": "gulp copyHtml",
+    "imageMin": "gulp imageMin"
   },
   "author": "Imraan-Hendricks",
   "license": "ISC",

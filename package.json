@@ -7,6 +7,7 @@
     "compileJs": "gulp compileJs",
     "compileSass": "gulp compileSass",
     "copyHtml": "gulp copyHtml",
+    "copyPhp": "gulp copyPhp",
     "imageMin": "gulp imageMin"
   },
   "author": "Imraan-Hendricks",

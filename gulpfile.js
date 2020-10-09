@@ -21,10 +21,14 @@ const compileSass = async () =>
 
 const copyHtml = async () => gulp.src('src/*.html').pipe(gulp.dest('build'));
 
+const copyPhp = async () =>
+  gulp.src('src/php/*.php').pipe(gulp.dest('build/php'));
+
 const imageMin = () =>
   gulp.src('src/images/*').pipe(imagemin()).pipe(gulp.dest('build/images'));
 
 exports.compileJs = compileJs;
 exports.compileSass = compileSass;
 exports.copyHtml = copyHtml;
+exports.copyPhp = copyPhp;
 exports.imageMin = imageMin;

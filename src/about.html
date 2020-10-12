@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="author" content="Imraan-Hendricks" />
-    <meta charset="UTF-8" />
-    <meta name="description" content="This is my application description" />
-    <meta name="keywords" content="HTML, CSS, JavaScript, Gulp" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
-    <link rel="icon" href="images/favicon.png" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
+  @@include('./markup/shared/head.html', {title: 'About'})
 
   <body>
-    <h1>About</h1>
+    <div class="about">
+      @@include('./markup/shared/header.html')
+      @@include('./markup/about/mission.html')
+      @@include('./markup/shared/footer.html')
+    </div>
   </body>
 
-  <script src="js/main.js"></script>
+  @@include('./markup/shared/scripts.html')
 </html>

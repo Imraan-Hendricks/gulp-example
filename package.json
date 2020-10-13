@@ -4,6 +4,7 @@
   "description": "This project serves as an example of how to use gulp by performing a few common tasks including minifying assets and compiling sass.",
   "main": "index.js",
   "scripts": {
+    "build": "gulp",
     "compileHtml": "gulp compileHtml",
     "compileJs": "gulp compileJs",
     "compileSass": "gulp compileSass",

@@ -6,6 +6,17 @@ const imagemin = require('gulp-imagemin');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 
+const compileHtml = async () =>
+  gulp
+    .src('src/*.html')
+    .pipe(
+      fileinclude({
+        prefix: '@@',
+        basepath: '@file',
+      })
+    )
+    .pipe(gulp.dest('build'));
+
 const compileJs = async () =>
   gulp
     .src('src/js/*.js')
@@ -20,25 +31,25 @@ const compileSass = async () =>
     .pipe(cleanCSS())
     .pipe(gulp.dest('build/css'));
 
-const compileHtml = async () =>
-  gulp
-    .src('src/*.html')
-    .pipe(
-      fileinclude({
-        prefix: '@@',
-        basepath: '@file',
-      })
-    )
-    .pipe(gulp.dest('build'));
-
 const copyPhp = async () =>
   gulp.src('src/php/*.php').pipe(gulp.dest('build/php'));
 
 const imageMin = () =>
   gulp.src('src/images/*').pipe(imagemin()).pipe(gulp.dest('build/images'));
 
+const build = gulp.series(
+  gulp.parallel(
+    compileHtml,
+    compileJs,
+    compileSass,
+    copyPhp,
+    imageMin
+  )
+);
+
 exports.compileHtml = compileHtml;
 exports.compileJs = compileJs;
 exports.compileSass = compileSass;
 exports.copyPhp = copyPhp;
+exports.default = build;
 exports.imageMin = imageMin;

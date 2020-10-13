@@ -9,7 +9,8 @@
     "compileJs": "gulp compileJs",
     "compileSass": "gulp compileSass",
     "copyPhp": "gulp copyPhp",
-    "imageMin": "gulp imageMin"
+    "imageMin": "gulp imageMin",
+    "watch": "gulp watch"
   },
   "author": "Imraan-Hendricks",
   "license": "ISC",

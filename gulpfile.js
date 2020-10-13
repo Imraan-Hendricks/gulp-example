@@ -47,9 +47,18 @@ const build = gulp.series(
   )
 );
 
+const watch = async () => {
+  gulp.watch('src/php/*.php', copyPhp);
+  gulp.watch('src/js/*.js', compileJs);
+  gulp.watch('src/sass/**/*.scss', compileSass);
+  gulp.watch('src/images/*', imageMin);
+  gulp.watch(['src/*.html', 'src/markup/**/*.html'], compileHtml);
+};
+
 exports.compileHtml = compileHtml;
 exports.compileJs = compileJs;
 exports.compileSass = compileSass;
 exports.copyPhp = copyPhp;
 exports.default = build;
 exports.imageMin = imageMin;
+exports.watch = watch;

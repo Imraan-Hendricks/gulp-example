@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const browserSync = require('browser-sync');
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const fileinclude = require('gulp-file-include');
@@ -29,7 +30,8 @@ const compileSass = async () =>
     .src('src/sass/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
-    .pipe(gulp.dest('build/css'));
+    .pipe(gulp.dest('build/css'))
+    .pipe(browserSync.stream());
 
 const copyPhp = async () =>
   gulp.src('src/php/*.php').pipe(gulp.dest('build/php'));
@@ -48,11 +50,14 @@ const build = gulp.series(
 );
 
 const watch = async () => {
-  gulp.watch('src/php/*.php', copyPhp);
-  gulp.watch('src/js/*.js', compileJs);
+  browserSync.init({ server: { baseDir: './build' } });
+  gulp
+    .watch(['src/*.html', 'src/markup/**/*.html'], compileHtml)
+    .on('change', browserSync.reload);
+  gulp.watch('src/js/*.js', compileJs).on('change', browserSync.reload);
   gulp.watch('src/sass/**/*.scss', compileSass);
+  gulp.watch('src/php/*.php', copyPhp);
   gulp.watch('src/images/*', imageMin);
-  gulp.watch(['src/*.html', 'src/markup/**/*.html'], compileHtml);
 };
 
 exports.compileHtml = compileHtml;

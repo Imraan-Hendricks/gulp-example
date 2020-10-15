@@ -1,6 +1,13 @@
 @import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
 
-body {
-  background-color: $bgColor;
-  color: $textColor;
-}
+@import 'base/normalize';
+@import 'base/typography';
+
+@import 'components/button';
+@import 'components/card';
+
+@import 'pages/shared/shared';
+@import 'pages/home/home';
+@import 'pages/about/about';

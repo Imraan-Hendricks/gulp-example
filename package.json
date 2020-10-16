@@ -9,6 +9,7 @@
     "compileJs": "gulp compileJs",
     "compileSass": "gulp compileSass",
     "copyPhp": "gulp copyPhp",
+    "copyVendors": "gulp copyVendors",
     "imageMin": "gulp imageMin",
     "watch": "gulp watch"
   },

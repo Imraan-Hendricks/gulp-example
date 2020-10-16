@@ -36,6 +36,9 @@ const compileSass = async () =>
 const copyPhp = async () =>
   gulp.src('src/php/*.php').pipe(gulp.dest('build/php'));
 
+const copyVendors = async () =>
+  gulp.src('src/vendors/**/*').pipe(gulp.dest('build/vendors'));
+
 const imageMin = () =>
   gulp.src('src/images/*').pipe(imagemin()).pipe(gulp.dest('build/images'));
 
@@ -45,6 +48,7 @@ const build = gulp.series(
     compileJs,
     compileSass,
     copyPhp,
+    copyVendors,
     imageMin
   )
 );
@@ -57,6 +61,7 @@ const watch = async () => {
   gulp.watch('src/js/*.js', compileJs).on('change', browserSync.reload);
   gulp.watch('src/sass/**/*.scss', compileSass);
   gulp.watch('src/php/*.php', copyPhp);
+  gulp.watch('src/vendors/**/*', copyVendors);
   gulp.watch('src/images/*', imageMin);
 };
 
@@ -64,6 +69,7 @@ exports.compileHtml = compileHtml;
 exports.compileJs = compileJs;
 exports.compileSass = compileSass;
 exports.copyPhp = copyPhp;
+exports.copyVendors = copyVendors;
 exports.default = build;
 exports.imageMin = imageMin;
 exports.watch = watch;

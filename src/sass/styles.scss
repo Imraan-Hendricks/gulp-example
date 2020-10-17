@@ -2,8 +2,10 @@
 @import 'abstracts/functions';
 @import 'abstracts/mixins';
 
-@import 'base/normalize';
-@import 'base/typography';
+@import 'bootstrap/custom';
+
+//@import 'base/normalize'; if using bootstrap reboot, normalize not required
+//@import 'base/typography'; if using bootstrap, customize bootstrap typography
 
 @import 'components/button';
 @import 'components/card';

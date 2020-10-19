@@ -1,9 +1,11 @@
 const gulp = require('gulp');
+const babel = require('gulp-babel');
 const browserSync = require('browser-sync');
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const fileinclude = require('gulp-file-include');
 const imagemin = require('gulp-imagemin');
+const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 
@@ -21,7 +23,15 @@ const compileHtml = async () =>
 const compileJs = async () =>
   gulp
     .src('src/js/*.js')
+    .pipe(plumber())
     .pipe(concat('main.js'))
+    .pipe(babel({
+      presets: [
+        ['@babel/env', {
+          modules: false
+        }]
+      ]
+    }))
     .pipe(uglify())
     .pipe(gulp.dest('build/js'));
 

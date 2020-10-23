@@ -25,10 +25,7 @@ function validation($body){
 }
 
 function main() {
-  $err = checkRequestMethod("POST");
-  if($err) return $err;
-
-  $err = checkContentType("application/json");
+  $err = checkRequest("POST", "application/json");
   if($err) return $err;
 
   $body = json_decode(file_get_contents('php://input'));

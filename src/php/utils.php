@@ -29,6 +29,14 @@ function checkContentType($cType){
   return $res;
 }
 
+function checkRequest($method, $contentType){
+  $err = checkRequestMethod($method);
+  if($err) return $err;
+
+  $err = checkContentType($contentType);
+  if($err) return $err;
+}
+
 function sendMail($fullName, $from, $to, $subject, $message, $replyTo){
   $headers = "From:"." ".$fullName." ".$from."\r\n";
   $headers .= "Reply-To:"." ".$replyTo."\r\n";

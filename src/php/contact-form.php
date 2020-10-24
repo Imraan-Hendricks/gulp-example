@@ -12,6 +12,17 @@ function validate($body){
   )); 
 }
 
+function send($data){
+  $fullName = $data->firstName." ".$data->lastName;
+  $from = $data->email;
+  $to = "hndx07@yahoo.com";
+  $subject = "This is the email subject";
+  $message = "<p>".$data->message."</p>";
+  $replyTo = $data->email;
+
+  return sendMail($fullName, $from, $to, $subject, $message, $replyTo);
+}
+
 function main() {
   $err = checkRequest("POST", "application/json");
   if($err) return $err;
@@ -20,15 +31,8 @@ function main() {
   
   $valRes = validate($body);
   if($valRes) return $valRes;
-   
-  $fullName = $body->firstName." ".$body->lastName;
-  $from = $body->email;
-  $to = "hndx07@yahoo.com";
-  $subject = "This is the email subject";
-  $message = "<p>".$body->message."</p>";
-  $replyTo = $body->email;
 
-  return sendMail($fullName, $from, $to, $subject, $message, $replyTo);
+  return send($body);
 }
 
 echo json_encode(main());

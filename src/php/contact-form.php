@@ -3,25 +3,13 @@
 require 'utils.php'; 
 require 'validation.php'; 
 
-function validation($body){
-  $firstNameRes = checkFirstName($body->firstName, true, 'body');
-  $lastNameRes = checkLastName($body->lastName, true, 'body');
-  $emailRes = checkEmail($body->email, true, 'body');
-  $messageRes = checkMessage($body->message, true, 'body');
-
-  $valRes = array();
-
-  if($firstNameRes) array_push($valRes, $firstNameRes);
-  if($lastNameRes) array_push($valRes, $lastNameRes);
-  if($emailRes) array_push($valRes, $emailRes);
-  if($messageRes) array_push($valRes, $messageRes);
-
-  if(count($valRes) > 0){
-    $res = new stdClass();
-    $res->success = false;
-    $res->err = $valRes;
-    return $res;
-  }
+function validate($body){
+  return getValRes(array(
+    checkFirstName($body->firstName, true, 'body'),
+    checkLastName($body->lastName, true, 'body'),
+    checkEmail($body->email, true, 'body'),
+    checkMessage($body->message, true, 'body')
+  )); 
 }
 
 function main() {
@@ -30,7 +18,7 @@ function main() {
 
   $body = json_decode(file_get_contents('php://input'));
   
-  $valRes = validation($body);
+  $valRes = validate($body);
   if($valRes) return $valRes;
    
   $fullName = $body->firstName." ".$body->lastName;

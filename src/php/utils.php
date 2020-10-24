@@ -37,6 +37,21 @@ function checkRequest($method, $contentType){
   if($err) return $err;
 }
 
+function getValRes($checkArr){
+  $valRes = array();
+
+  foreach ($checkArr as $checkRes){
+    if($checkRes) array_push($valRes, $checkRes);
+  }
+
+  if(count($valRes) > 0){
+    $res = new stdClass();
+    $res->success = false;
+    $res->err = $valRes;
+    return $res;
+  }
+}
+
 function sendMail($fullName, $from, $to, $subject, $message, $replyTo){
   $headers = "From:"." ".$fullName." ".$from."\r\n";
   $headers .= "Reply-To:"." ".$replyTo."\r\n";

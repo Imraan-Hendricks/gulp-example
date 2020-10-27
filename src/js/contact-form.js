@@ -1,7 +1,7 @@
 const contactForm = () => {
   const contactForm = document.getElementById('contactForm');
-  const form = Array.from(contactForm.children)
-    .filter((child) => (child.tagName === 'FORM'))[0];
+  const form = contactForm.getElementsByTagName('FORM')[0];
+  const success = contactForm.getElementsByClassName('success')[0];
 
   let data = {
     firstName: '',
@@ -19,6 +19,7 @@ const contactForm = () => {
   };
 
   const onErrors = (errs) => {
+    console.log(errs);
     const inputGroups = Array.from(form.children)
       .filter((formChild) => (formChild.tagName === 'DIV'));
 
@@ -38,6 +39,12 @@ const contactForm = () => {
     })
   }  
 
+  const onSuccess = (data) => {
+    console.log(data);
+    form.style.opacity = 0;
+    success.style.opacity = 1;
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -48,14 +55,13 @@ const contactForm = () => {
     xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const res = JSON.parse(this.responseText);
-        console.log(res);
 
         if(!res.success){
           onErrors(res.err);
           return;
         }
 
-        console.log('handle success')
+        onSuccess(res.data);
       }
     };
   

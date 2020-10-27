@@ -18,6 +18,10 @@ const contactForm = () => {
     form.lastChild.textContent = undefined;
   };
 
+  const onRequest = () => {
+    form.querySelector('button').setAttribute('disabled', true);
+  }
+
   const onErrors = (errs) => {
     console.log(errs);
     const inputGroups = Array.from(form.getElementsByTagName('DIV'));
@@ -33,16 +37,21 @@ const contactForm = () => {
             input.nextElementSibling.textContent = error.message; 
         })        
     })
+
+    form.querySelector('button').removeAttribute('disabled');
   }  
 
   const onSuccess = (data) => {
     console.log(data);
     form.style.opacity = 0;
     success.style.opacity = 1;
+
+    form.querySelector('button').removeAttribute('disabled');
   }
 
   const onSubmit = (e) => {
     e.preventDefault();
+    onRequest();
 
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'php/contact-form.php', true);

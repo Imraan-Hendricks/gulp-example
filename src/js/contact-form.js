@@ -20,18 +20,14 @@ const contactForm = () => {
 
   const onErrors = (errs) => {
     console.log(errs);
-    const inputGroups = Array.from(form.children)
-      .filter((formChild) => (formChild.tagName === 'DIV'));
+    const inputGroups = Array.from(form.getElementsByTagName('DIV'));
 
     errs.forEach((error) => {
       if (error.param === 'general')
         form.lastChild.textContent = error.message;
       else
         inputGroups.forEach((inputGroup) => {
-          let input = Array.from(inputGroup.children)
-            .filter((element) => (
-              element.tagName === 'INPUT' || element.tagName === 'TEXTAREA'
-            ))[0];
+          const input = inputGroup.querySelectorAll('input, textarea')[0];
 
           if(input.getAttribute('name') === error.param)
             input.nextElementSibling.textContent = error.message; 

@@ -10,7 +10,13 @@
 @import 'components/button';
 @import 'components/card';
 
-@import 'pages/shared/shared';
-@import 'pages/home/home';
-@import 'pages/about/about';
-@import 'pages/contact/contact';
+@import 'pages/global';
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/contact';
+
+@import 'markup/header';
+@import 'markup/landing';
+@import 'markup/mission';
+@import 'markup/contact-form';
+@import 'markup/footer';

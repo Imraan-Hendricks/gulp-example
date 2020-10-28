@@ -66,7 +66,7 @@ const build = gulp.series(
 const watch = async () => {
   browserSync.init({ server: { baseDir: './build' } });
   gulp
-    .watch(['src/*.html', 'src/markup/**/*.html'], compileHtml)
+    .watch(['src/*.html', 'src/markup/*.html'], compileHtml)
     .on('change', browserSync.reload);
   gulp.watch('src/js/*.js', compileJs).on('change', browserSync.reload);
   gulp.watch('src/sass/**/*.scss', compileSass);

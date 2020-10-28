@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-  @@include('./markup/shared/head.html', {title: 'Home'})
+  @@include('./markup/head.html', {title: 'Home'})
 
   <body>
-    <div class="home">
-      @@include('./markup/shared/header.html')
-      @@include('./markup/home/landing.html')
-      @@include('./markup/shared/footer.html')
+    <div id="home">
+      @@include('./markup/header.html')
+      @@include('./markup/landing.html')
+      @@include('./markup/footer.html')
     </div>
   </body>
 
-  @@include('./markup/shared/scripts.html')
+  @@include('./markup/scripts.html')
 </html>

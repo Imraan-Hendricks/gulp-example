@@ -41,10 +41,20 @@ const contactForm = () => {
     form.querySelector('button').removeAttribute('disabled');
   }  
 
-  const onSuccess = (data) => {
-    console.log(data);
+  const onSuccess = (res) => {
+    console.log(res);
     form.style.opacity = 0;
     success.style.opacity = 1;
+
+    const inputs = Array.from(form.querySelectorAll('input, textarea'));
+    inputs.forEach((input) => {
+        input.value = ''; 
+    }) 
+
+    const dataKeys = Object.keys(data);
+    dataKeys.forEach((key) => {
+      data[key] = '';
+    })
 
     form.querySelector('button').removeAttribute('disabled');
   }
@@ -72,9 +82,15 @@ const contactForm = () => {
   
     xhr.send(JSON.stringify(data));
   }
+
+  const onSendAnotherMessage = () => {
+    form.style.opacity = 1;
+    success.style.opacity = 0;
+  }
   
   form.addEventListener('change', onChange);
   form.addEventListener('submit', onSubmit);
+  success.querySelector('button').addEventListener('click', onSendAnotherMessage);
 };
 
 contactForm();

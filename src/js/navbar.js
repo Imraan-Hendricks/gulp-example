@@ -13,13 +13,16 @@ const navbar = () => {
   const handleLink = (e) => {
     e.preventDefault();
 
+    if (e.target.getAttribute('href') === '#') return;
+
     const id = e.target.getAttribute('href').replace('#', '');
     const page = e.target.getAttribute('data-page');
     const targetElement = document.getElementById(id);
 
     if (!targetElement) {
-      if (page === 'home' && id === 'landing') window.location.href = '/';
+      if (page === 'home' && page === id) window.location.href = '/';
       else if (page === 'home') window.location.href = '/#' + id;
+      else if (page === id) window.location.href = page + '.html';
       else window.location.href = page + '.html#' + id;
       return;
     }

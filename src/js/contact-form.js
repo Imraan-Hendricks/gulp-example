@@ -74,16 +74,22 @@ const contactForm = () => {
     xhr.setRequestHeader('Content-type', 'application/json');
 
     xhr.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        const res = JSON.parse(this.responseText);
+      if (this.readyState != 4) return;
 
-        if (!res.success) {
-          onErrors(res.err);
-          return;
-        }
+      if (this.status != 200)
+        return onErrors([
+          {
+            location: 'request',
+            param: 'general',
+            message: 'network error',
+            value: '',
+          },
+        ]);
 
-        onSuccess(res.data);
-      }
+      const res = JSON.parse(this.responseText);
+      if (!res.success) return onErrors(res.err);
+
+      onSuccess(res.data);
     };
 
     xhr.send(JSON.stringify(data));

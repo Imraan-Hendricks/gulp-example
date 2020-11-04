@@ -1,10 +1,32 @@
 # gulp-example
 
-This project serves as an example of how to use gulp. The gulp file included in this project performs a few common tasks such as minifying assets, compiling sass, file concatenation and sharing html markup.
+This project serves as an example of how to use gulp. The gulp file included in this project performs a few common tasks such as minifying assets, compiling sass, transpiling es6, file concatenation and sharing html markup.
 
 In addition, the gulp file further includes a build and watch feature. The build feature performs all tasks required to produce production ready code and the watch feature watches all source files during development and updates the build when any changes are made.
 
 This project is also equipped with browser sync that is initiated when performing the watch task which allows the user to make updates and have it reflect immediately in the browser for a smooth development experience.
+
+### Features include:
+
+- navbar including smooth scrolling and redirects
+- pages including home, about and contact
+- contact form with ajax request
+- php mail functionality
+- server side validation
+
+### Developer features:
+
+- application structure
+- markup encapsulation
+- es6+ transpiler
+- sass compiler and structure
+
+### Configured vendors
+
+- animateCss
+- bootstrap 4
+- font awesome 5
+- wowjs
 
 ### Requirements:
 
@@ -40,7 +62,7 @@ Compiles html files located in the src directory by using gulp-file-include to a
 
 ### `npm run compileJs`
 
-Compiles all javascript files located in the js directory by concatenating them into one file called main.js, which then gets minified and sent to the build folder.
+Compiles all javascript files located in the js directory by concatenating them into one file called main.js, transpiling es6+ into a backwards compatible version of javascript (es5) that can run in any browser, which then gets minified and sent to the build folder.
 
 ### `npm run compileSass`
 

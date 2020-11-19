@@ -18,8 +18,8 @@ function checkFirstName($firstName, $required, $location){
     return $check;
   } 
 
-  if (!preg_match("/^[a-z ,.'-]+$/i",$firstName)) {
-    $check->message = 'Invalid first name';
+  if (!preg_match("/^[A-Z](['-](?!['-])|[a-z])*[a-z]$/",$firstName)) {
+    $check->message = 'invalid first name';
     return $check;
   }  
 }
@@ -42,8 +42,8 @@ function checkLastName($lastName, $required, $location){
     return $check;
   } 
 
-  if (!preg_match("/^[a-z ,.'-]+$/i",$lastName)) {
-    $check->message = 'Invalid last name';
+  if (!preg_match("/^[A-Z](['-](?!['-])|[a-z])*[a-z]$/",$lastName)) {
+    $check->message = 'invalid last name';
     return $check;
   }   
 }
@@ -90,8 +90,8 @@ function checkMessage($message, $required, $location){
     return $check;
   } 
 
-  if (!preg_match("/^[0-9a-z ,.'-]+$/i",$message)) {
-    $check->message = 'may only include letters, digits, spaces, commas, periods, apostrophes and hyphens';
+  if (!preg_match("/^[^\\]+$/",$message)) {
+    $check->message = 'backslash not allowed';
     return $check;
   }
 }

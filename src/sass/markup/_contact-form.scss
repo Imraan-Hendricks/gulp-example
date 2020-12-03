@@ -1,18 +1,42 @@
 #contactForm {
   position: relative;
   background-color: white;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 100px;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 100px;
+  }
+
+  background-color: black;
+  background-image: url('../images/about.jpg');
+  background-position: left;
+  background-repeat: no-repeat;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.781);
+    opacity: 0.6;
+    z-index: 0;
+  }
 
   .leftContent {
     padding-top: 60px;
     padding-left: 15%;
     padding-right: 15%;
     h1 {
-      color: black;
+      color: white;
     }
     p {
       color: $success;
+      padding-bottom: 25px;
+      @include media-breakpoint-up(lg) {
+        padding-bottom: 0px;
+      }
     }
   }
 

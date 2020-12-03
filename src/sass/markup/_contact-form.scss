@@ -5,7 +5,8 @@
   padding-bottom: 100px;
 
   @include media-breakpoint-up(lg) {
-    padding-top: 100px;
+    padding-top: 240px;
+    padding-bottom: 240px;
   }
 
   background-color: black;
@@ -29,10 +30,10 @@
     padding-left: 15%;
     padding-right: 15%;
     h1 {
-      color: white;
+      color: $success;
     }
     p {
-      color: $success;
+      color: white;
       padding-bottom: 25px;
       @include media-breakpoint-up(lg) {
         padding-bottom: 0px;

@@ -1,6 +1,30 @@
 #activities {
+  position: relative;
+  background-color: $dark;
+  padding-bottom: 25px;
+
+  background-color: black;
+  background-image: url('../images/about.jpg');
+  background-position: left;
+  background-repeat: no-repeat;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.781);
+    opacity: 0.6;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+  }
+
   h1 {
-    margin-top: 50px;
+    padding-top: 50px;
   }
   hr {
     margin-bottom: 50px;
@@ -16,7 +40,7 @@
     margin-right: 50px;
     margin-bottom: 30px;
     margin-top: 20px;
-    color: rgb(224, 224, 224);
+    color: white;
   }
   button {
     margin-bottom: 50px;

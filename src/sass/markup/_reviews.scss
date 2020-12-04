@@ -1,0 +1,140 @@
+@mixin useFadeIn($duration) {
+  -webkit-animation: fadeIn $duration ease-in;
+  -moz-animation: fadeIn $duration ease-in;
+  -o-animation: fadeIn $duration ease-in;
+  animation: fadeIn $duration ease-in;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#reviews {
+  text-align: center;
+  background-color: white;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .container {
+    position: relative;
+  }
+
+  .amanda {
+    display: block;
+    @include useFadeIn(0.5s);
+    .circle {
+      background-image: url('../images/review-img1.jpg');
+    }
+  }
+
+  .john {
+    display: none;
+    @include useFadeIn(0.5s);
+    .circle {
+      background-image: url('../images/review-img2.jpg');
+    }
+  }
+
+  .alice {
+    display: none;
+    @include useFadeIn(0.5s);
+    .circle {
+      background-image: url('../images/review-img3.jpg');
+    }
+  }
+
+  .circle {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 150px;
+    height: 150px;
+    -moz-border-radius: 75px;
+    -webkit-border-radius: 75px;
+    border-radius: 75px;
+    overflow: hidden;
+  }
+
+  h1 {
+    color: $success;
+  }
+
+  hr {
+    background-color: $success;
+    width: 200px;
+  }
+
+  blockquote {
+    padding-left: 20%;
+    padding-right: 20%;
+    color: black;
+  }
+
+  i {
+    color: $success;
+  }
+
+  footer {
+    color: $success;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    &:hover {
+      cursor: pointer;
+      transform: translate(0, -50%) scale(1.2);
+      transition: transform 0.1s ease-in;
+    }
+  }
+
+  .arrowLeft {
+    left: 0;
+    margin-left: 5%;
+    @include media-breakpoint-up(md) {
+      margin-left: 15%;
+    }
+  }
+
+  .arrowRight {
+    right: 0;
+    margin-right: 5%;
+    @include media-breakpoint-up(md) {
+      margin-right: 15%;
+    }
+  }
+}

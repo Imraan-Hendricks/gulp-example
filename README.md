@@ -66,7 +66,7 @@ Compiles all javascript files located in the js directory by concatenating them 
 
 ### `npm run compileSass`
 
-Compiles sass files located in the sass directory to css, which then gets minified and sent to build folder.
+Compiles sass files located in the sass directory to css. Then adds vendor prefixes based on browserslist in package.json, which finally gets minified and sent to build folder.
 
 ### `npm run imageMin`
 

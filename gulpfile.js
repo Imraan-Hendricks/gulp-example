@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 const browserSync = require('browser-sync');
 const cleanCSS = require('gulp-clean-css');
@@ -25,13 +26,18 @@ const compileJs = async () =>
     .src('src/js/*.js')
     .pipe(plumber())
     .pipe(concat('main.js'))
-    .pipe(babel({
-      presets: [
-        ['@babel/env', {
-          modules: false
-        }]
-      ]
-    }))
+    .pipe(
+      babel({
+        presets: [
+          [
+            '@babel/env',
+            {
+              modules: false,
+            },
+          ],
+        ],
+      })
+    )
     .pipe(uglify())
     .pipe(gulp.dest('build/js'));
 
@@ -39,6 +45,7 @@ const compileSass = async () =>
   gulp
     .src('src/sass/*.scss')
     .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
     .pipe(cleanCSS())
     .pipe(gulp.dest('build/css'))
     .pipe(browserSync.stream());

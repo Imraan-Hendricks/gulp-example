@@ -1,5 +1,11 @@
 #mission {
-  @include useBgImgTint('../images/about.jpg', bottom, auto, rgb(0, 0, 0), 0.8);
+  @include useBgImgTint(
+    '../images/common-bg.jpg',
+    bottom,
+    auto,
+    rgb(0, 0, 0),
+    0.8
+  );
 
   .title {
     text-align: center;

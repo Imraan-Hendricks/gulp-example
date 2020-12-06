@@ -1,48 +1,44 @@
 #activities {
-  position: relative;
-  background-color: $dark;
-  padding-bottom: 25px;
+  @include useBgImgTint(
+    '../images/about.jpg',
+    left,
+    auto,
+    rgba(0, 0, 0, 0.781),
+    0.6
+  );
 
-  background-color: black;
-  background-image: url('../images/about.jpg');
-  background-position: left;
-  background-repeat: no-repeat;
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.781);
-    opacity: 0.6;
-    z-index: 0;
-  }
+  padding-bottom: 25px;
 
   .container {
     position: relative;
-  }
+    text-align: center;
 
-  h1 {
-    padding-top: 50px;
-  }
-  hr {
-    margin-bottom: 50px;
-    padding-left: 30px;
-    width: 200px;
-    color: $success;
-  }
-  i {
-    margin-top: 20px;
-  }
-  p {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 30px;
-    margin-top: 20px;
-    color: white;
-  }
-  button {
-    margin-bottom: 50px;
+    h1 {
+      padding-top: 50px;
+    }
+
+    hr {
+      background-color: $success;
+      margin-bottom: 50px;
+      padding-left: 30px;
+      width: 200px;
+    }
+
+    i {
+      margin-top: 20px;
+      color: $success;
+    }
+
+    p {
+      margin-left: 50px;
+      margin-right: 50px;
+      margin-bottom: 30px;
+      margin-top: 20px;
+      color: white;
+    }
+
+    button {
+      margin-bottom: 50px;
+    }
   }
 }

@@ -1,26 +1,17 @@
 #photoGallery {
-  background-color: black;
-  background-image: url('../images/about.jpg');
-  background-position: left;
-  background-repeat: no-repeat;
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.781);
-    opacity: 0.6;
-    z-index: 0;
-  }
+  @include useBgImgTint(
+    '../images/about.jpg',
+    left,
+    auto,
+    rgba(0, 0, 0, 0.781),
+    0.6
+  );
 
   .title {
     position: relative;
     padding-top: 50px;
     padding-bottom: 50px;
     margin-left: 7.5%;
-    z-index: 1;
   }
 
   .customContainer {
@@ -38,17 +29,11 @@
       background-color: #cccccc;
       height: 100vw * 0.8 / 16 * 9;
       width: 100vw * 0.8;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100%;
       position: relative;
       z-index: 1;
       overflow: hidden;
-      transition: background-size 0.5s ease-in;
-      -moz-transition: background-size 0.5s ease-in;
-      -ms-transition: background-size 0.5s ease-in;
-      -o-transition: background-size 0.5s ease-in;
-      -webkit-transition: background-size 0.5s ease-in;
+
+      @include useTransition(background-size, 0.5s, ease-in);
 
       @include media-breakpoint-up(lg) {
         height: 100vw / 3 * 0.8 / 16 * 9;
@@ -65,6 +50,7 @@
         text-align: center;
         bottom: 0%;
       }
+
       &:before {
         content: '';
         position: absolute;
@@ -76,21 +62,21 @@
         opacity: 0.6;
         z-index: 2;
       }
+
       &:hover {
         cursor: pointer;
         background-size: 100vw * 0.8 * 1.2;
+
         @include media-breakpoint-up(lg) {
           background-size: 100vw / 3 * 0.8 * 1.2;
         }
-        transition: background-size 0.5s ease-in;
-        -moz-transition: background-size 0.5s ease-in;
-        -ms-transition: background-size 0.5s ease-in;
-        -o-transition: background-size 0.5s ease-in;
-        -webkit-transition: background-size 0.5s ease-in;
+
+        @include useTransition(background-size, 0.5s, ease-in);
         &:before {
           background-color: rgba(0, 0, 0, 0.781);
           opacity: 0.6;
         }
+
         .content {
           opacity: 1;
         }
@@ -98,31 +84,31 @@
     }
 
     .img1 {
-      background-image: url('../images/gallery-img1.jpg');
+      @include useBgImg('../images/gallery-img1.jpg', center, 100%);
     }
     .img2 {
-      background-image: url('../images/gallery-img2.jpg');
+      @include useBgImg('../images/gallery-img2.jpg', center, 100%);
     }
     .img3 {
-      background-image: url('../images/gallery-img3.jpg');
+      @include useBgImg('../images/gallery-img3.jpg', center, 100%);
     }
     .img4 {
-      background-image: url('../images/gallery-img4.jpg');
+      @include useBgImg('../images/gallery-img4.jpg', center, 100%);
     }
     .img5 {
-      background-image: url('../images/gallery-img5.jpg');
+      @include useBgImg('../images/gallery-img5.jpg', center, 100%);
     }
     .img6 {
-      background-image: url('../images/gallery-img6.jpg');
+      @include useBgImg('../images/gallery-img6.jpg', center, 100%);
     }
     .img7 {
-      background-image: url('../images/gallery-img7.jpg');
+      @include useBgImg('../images/gallery-img7.jpg', center, 100%);
     }
     .img8 {
-      background-image: url('../images/gallery-img8.jpg');
+      @include useBgImg('../images/gallery-img8.jpg', center, 100%);
     }
     .img9 {
-      background-image: url('../images/gallery-img9.jpg');
+      @include useBgImg('../images/gallery-img9.jpg', center, 100%);
     }
   }
 }

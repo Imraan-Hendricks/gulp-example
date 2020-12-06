@@ -1,0 +1,107 @@
+@mixin useAbsoluteCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin useBgImg($url, $position, $size) {
+  background-image: url($url);
+  background-position: $position;
+  background-repeat: no-repeat;
+  background-size: $size;
+}
+
+@mixin useBgImgTint($url, $position, $size, $bgColor, $opacity) {
+  position: relative;
+  @include useBgImg($url, $position, $size);
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $bgColor;
+    opacity: $opacity;
+    z-index: 0;
+  }
+}
+
+@mixin useCircle($size) {
+  width: $size;
+  height: $size;
+  -webkit-border-radius: $size / 2;
+  -moz-border-radius: $size / 2;
+  -ms-border-radius: $size / 2;
+  -o-border-radius: $size / 2;
+  border-radius: $size / 2;
+  overflow: hidden;
+}
+
+@mixin useFadeIn($duration) {
+  -webkit-animation: fadeIn $duration ease-in;
+  -moz-animation: fadeIn $duration ease-in;
+  -ms-animation: fadeIn $duration ease-in;
+  -o-animation: fadeIn $duration ease-in;
+  animation: fadeIn $duration ease-in;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin useFixedVerticalCenter() {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin useTransition($property, $duration, $timingFunction) {
+  -webkit-transition: $property $duration $timingFunction;
+  -moz-transition: $property $duration $timingFunction;
+  -ms-transition: $property $duration $timingFunction;
+  -o-transition: $property $duration $timingFunction;
+  transition: $property $duration $timingFunction;
+}

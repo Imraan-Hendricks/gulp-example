@@ -89,9 +89,4 @@ function checkMessage($message, $required, $location){
     $check->message = 'Message cannot be empty';
     return $check;
   } 
-
-  if (!preg_match("/^[^\\]+$/",$message)) {
-    $check->message = 'backslash not allowed';
-    return $check;
-  }
 }

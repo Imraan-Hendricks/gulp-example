@@ -48,8 +48,10 @@ const contactForm = () => {
       }
 
       inputs.forEach((input) => {
-        if (input.getAttribute('name') === error.param)
+        if (input.getAttribute('name') === error.param) {
           input.nextElementSibling.textContent = error.message;
+          input.nextElementSibling.style.color = 'white';
+        }
       });
     });
 
